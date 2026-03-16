@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shahd Tarek | Real Estate Content Creator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;700&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c9a96e",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#0d0d0d",
+                        "luxury-ivory": "#F5F0EB",
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["DM Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "DM Sans", sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    }
+.editorial-heading {
+    font-family: "Cormorant Garamond", serif
+    }
+.grain-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBTqGQZKDlplZ3d1CmPbF5je2KszPNS90vQnwSSfREItR5g-wvJDXLKRd2N7YhmF_rD4sufN0i2atDAyX4cvUgL5E0BtRx_vZSZD804xTIMAp94TLbpMcl1UKobLWyFL9Vk-z-vPgR-05s5WsPJeO6fUAJrDTDPjjoLtESUxxsrjUsZAzi4dxEbl95VRudDBQSIbD6LrWiwJn3xLyOMv0js7XKrWVsSNhA7q8ud8uxqjnJftE6A3W5e7SAHjAN7nKeWc2WKhE1HzLSb);
+    opacity: 0.05;
+    pointer-events: none
+    }
+.gold-line-anim {
+    width: 0;
+    height: 2px;
+    background: #c9a96e;
+    transition: width 1.5s ease-out
+    }
+.hero-active .gold-line-anim {
+    width: 120px
+    }
+.sticky-nav {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease
+    }
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem
+    }
+.dir-rtl {
+    direction: rtl;
+    text-align: right;
+    }
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    }
+.portfolio-filter.active {
+    background-color: #c9a96e;
+    color: #0d0d0d;
+    }
+/* Animation Classes */
+.reveal {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-up {
+    transform: translateY(40px);
+}
+.reveal-left {
+    transform: translateX(-40px);
+}
+.reveal-right {
+    transform: translateX(40px);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Glassmorphism */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-item {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-color: rgba(201, 169, 110, 0.3);
+}
+
+.service-card {
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    background: rgba(201, 169, 110, 0.05);
+}
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+<!-- Sticky Navigation -->
+<nav class="fixed top-0 w-full z-50 sticky-nav border-b border-primary/10 bg-background-dark">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex flex-col max-w-[70%] sm:max-w-none">
+<span class="editorial-heading text-xl md:text-2xl font-bold tracking-widest text-primary uppercase truncate sm:whitespace-normal">SHAHD TAREK</span>
+<div class="gold-line-anim"></div>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+<a class="text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#education">Education</a>
+<a class="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background-dark transition-all text-sm uppercase tracking-widest" href="#contact">Get in Touch</a>
+</div>
+<button class="md:hidden text-primary" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile Menu Drawer (Dropdown) -->
+<div class="fixed top-[50px] left-0 w-full bg-background-dark z-[40] -translate-y-[110%] transition-transform duration-500 md:hidden shadow-2xl border-b border-primary/10 glass-effect" id="mobile-menu">
+<div class="p-6 pt-12 flex flex-col items-center gap-5">
+<a class="mobile-link text-xl uppercase tracking-widest hover:text-primary transition-colors" href="#about">About</a>
+<a class="mobile-link text-xl uppercase tracking-widest hover:text-primary transition-colors" href="#services">Services</a>
+<a class="mobile-link text-xl uppercase tracking-widest hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="mobile-link text-xl uppercase tracking-widest hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+<a class="mobile-link text-xl uppercase tracking-widest hover:text-primary transition-colors" href="#education">Education</a>
+<a class="mobile-link text-xl uppercase tracking-widest text-primary font-bold" href="#contact">Get in Touch</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden hero-active">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark z-10"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Modern luxury villa interior with large windows and warm lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHucH98_eAxUin1Dvcgn-qVvwwynJUf52flRkMs1OymBVdza7yQALBBGzNimK0Lbzc8VCVrRDbiwnTDWzdA_4Ab4UkAlmbSMEKK6rrui9jEhcxbzwkZRbXTHoE6P31q1jW06Ewfpw48hZPcavXaXRcfWO3kV6-CjTiUam9TFW3qcP212UdzDtyPnlmAsd0oKUFIo3EuGDjYE4Arrr1COGsnQNCl8dHmQ6r3zJsPlxloskpiH-M3bVTf_-EP3cexAOP1BugypeBwyi6')"></div>
+<div class="absolute inset-0 grain-overlay z-20"></div>
+</div>
+<div class="relative z-30 text-center px-6 max-w-5xl">
+
+<h1 class="editorial-heading text-6xl md:text-8xl text-white mb-8 leading-[1.1]">
+                SOCIAL MEDIA & <br/><span class="italic text-primary">CONTENT CREATOR.</span>
+</h1>
+
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<a class="bg-primary text-background-dark px-10 py-4 font-bold tracking-widest uppercase text-sm hover:scale-105 transition-transform" href="#portfolio">Explore Portfolio</a>
+<a class="text-white border-b border-primary/50 pb-1 hover:border-primary transition-all tracking-widest uppercase text-sm" href="#services">'MY' Services</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+<span class="material-symbols-outlined text-white text-3xl">expand_more</span>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-24 px-6 bg-background-dark" id="about">
+<div class="max-w-7xl mx-auto reveal reveal-up">
+<div class="max-w-3xl mx-auto text-center">
+<div class="flex flex-col gap-8">
+<h2 class="editorial-heading text-5xl text-white">Creative Lens <br/><span class="text-primary italic">Strategic Growth.</span></h2>
+<p class="text-luxury-ivory/70 leading-relaxed text-lg font-light">
+                        Creative Content Creator with hands-on experience in real estate marketing and early childhood education engagement. Social Media Specialist skilled in content planning, community management, and platform growth across Instagram, Facebook, and LinkedIn.
+                    </p>
+<p class="text-luxury-ivory/70 leading-relaxed text-lg font-light">
+                        Bilingual professional (Arabic and English) with excellent communication and organizational skills, adept at translating brand voice into engaging social media content.
+                    </p>
+<div class="grid grid-cols-3 gap-6 pt-4">
+<div class="border-t border-primary/30 pt-4">
+<span class="block text-3xl font-bold text-primary editorial-heading">500+</span>
+<span class="text-xs uppercase tracking-widest opacity-60">Reels Created</span>
+</div>
+<div class="border-t border-primary/30 pt-4">
+<span class="block text-3xl font-bold text-primary editorial-heading">15k+</span>
+<span class="text-xs uppercase tracking-widest opacity-60">Community Reach</span>
+</div>
+<div class="border-t border-primary/30 pt-4">
+<span class="block text-3xl font-bold text-primary editorial-heading">100%</span>
+<span class="text-xs uppercase tracking-widest opacity-60">Client Satisfaction</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 px-6 bg-[#121212] overflow-x-hidden" id="services">
+<div class="max-w-7xl mx-auto reveal reveal-up">
+<div class="mb-16 text-center">
+<h2 class="editorial-heading text-5xl mb-4">What I Create</h2>
+<div class="w-20 h-0.5 bg-primary mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="p-8 border border-primary/10 hover:border-primary/40 transition-all group bg-background-dark service-card reveal reveal-up">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 group-hover:scale-110 transition-transform">videocam</span>
+<h3 class="editorial-heading text-2xl mb-4 text-white">Visual Content</h3>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed mb-6">4K cinematic property tours, drone videography, and high-end lifestyle photography for prestige listings.</p>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500"></div>
+</div>
+<!-- Card 2 -->
+<div class="p-8 border border-primary/10 hover:border-primary/40 transition-all group bg-background-dark service-card reveal reveal-up" style="transition-delay: 100ms">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 group-hover:scale-110 transition-transform">auto_awesome</span>
+<h3 class="editorial-heading text-2xl mb-4 text-white">Social Strategy</h3>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed mb-6">Custom growth blueprints for agents and developers to dominate Instagram and TikTok markets.</p>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500"></div>
+</div>
+<!-- Card 3 -->
+<div class="p-8 border border-primary/10 hover:border-primary/40 transition-all group bg-background-dark service-card reveal reveal-up" style="transition-delay: 200ms">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 group-hover:scale-110 transition-transform">edit_note</span>
+<h3 class="editorial-heading text-2xl mb-4 text-white">Editorial Copy</h3>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed mb-6">Compelling property narratives and email marketing campaigns that resonate with high-net-worth individuals.</p>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500"></div>
+</div>
+<!-- Card 4 -->
+<div class="p-8 border border-primary/10 hover:border-primary/40 transition-all group bg-background-dark service-card reveal reveal-up" style="transition-delay: 300ms">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 group-hover:scale-110 transition-transform">insights</span>
+<h3 class="editorial-heading text-2xl mb-4 text-white">Analytics ROI</h3>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed mb-6">Monthly performance reports with actionable insights to maximize lead generation through organic content.</p>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Skills Section -->
+<section class="py-24 px-6 bg-background-dark" id="experience">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 reveal reveal-up">
+<!-- Timeline -->
+<div>
+<h2 class="editorial-heading text-4xl mb-12">Career Journey</h2>
+<div class="space-y-12">
+<div class="relative pl-8 border-l-2 border-primary/20 reveal reveal-left">
+<div class="absolute -left-[9px] top-0 size-4 rounded-full bg-primary"></div>
+<span class="text-xs uppercase tracking-widest text-primary font-bold">May 2025 – Present</span>
+<h4 class="text-xl font-bold mt-2">Content Creator | Dama Development</h4>
+<p class="text-luxury-ivory/60 text-sm mt-2">Executing creative content strategies for real estate (Instagram, Facebook, LinkedIn). Creating Reels and visual narratives for property launches.</p>
+</div>
+<div class="relative pl-8 border-l-2 border-primary/20 reveal reveal-left" style="transition-delay: 200ms">
+<div class="absolute -left-[9px] top-0 size-4 rounded-full bg-primary/40"></div>
+<span class="text-xs uppercase tracking-widest text-primary font-bold">Sept 2024 – May 2025</span>
+<h4 class="text-xl font-bold mt-2">Social Media Specialist | ABC International Nursery</h4>
+<p class="text-luxury-ivory/60 text-sm mt-2">Managed online community and designed daily educational content for parents. Handled direct engagement and prospective inquiries.</p>
+</div>
+</div>
+</div>
+<!-- Expertise -->
+<div class="bg-primary/5 p-10 rounded-xl border border-primary/10">
+    <h2 class="editorial-heading text-4xl mb-12">Expertise</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Technical Skills -->
+        <div class="space-y-6">
+            <h3 class="text-xs uppercase tracking-[0.3em] text-primary border-b border-primary/20 pb-2 mb-6">Technical Skills</h3>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm text-luxury-ivory/80"><span class="size-1.5 bg-primary rounded-full"></span>Social Media Platforms</li>
+                <li class="flex items-center gap-3 text-sm text-luxury-ivory/80"><span class="size-1.5 bg-primary rounded-full"></span>Content Strategy & Reels</li>
+                <li class="flex items-center gap-3 text-sm text-luxury-ivory/80"><span class="size-1.5 bg-primary rounded-full"></span>Caption & Hashtag Research</li>
+                <li class="flex items-center gap-3 text-sm text-luxury-ivory/80"><span class="size-1.5 bg-primary rounded-full"></span>Microsoft Office Suite</li>
+                <li class="flex items-center gap-3 text-sm text-luxury-ivory/80"><span class="size-1.5 bg-primary rounded-full"></span>SEO & Community Mgmt</li>
+            </ul>
+        </div>
+        <!-- Software & Personal -->
+        <div class="space-y-6">
+            <h3 class="text-xs uppercase tracking-[0.3em] text-primary border-b border-primary/20 pb-2 mb-6">Software & Personal</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 bg-primary/10 border border-primary/20 text-[10px] uppercase tracking-widest rounded-full">Photo/Video Editing</span>
+                <span class="px-3 py-1 bg-primary/10 border border-primary/20 text-[10px] uppercase tracking-widest rounded-full">Scheduling Tools</span>
+                <span class="px-3 py-1 bg-primary/10 border border-primary/20 text-[10px] uppercase tracking-widest rounded-full">Excel / Word</span>
+            </div>
+            <ul class="space-y-2">
+                <li class="text-[11px] uppercase tracking-widest opacity-60 italic">Personal Strengths:</li>
+                <li class="text-sm text-luxury-ivory/70">Creativity & Storytelling</li>
+                <li class="text-sm text-luxury-ivory/70">Adaptability & Fast Learner</li>
+                <li class="text-sm text-luxury-ivory/70">Time Management</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Languages -->
+    <div class="mt-12 pt-8 border-t border-primary/20">
+        <h3 class="text-xs uppercase tracking-[0.3em] text-primary mb-6">Languages</h3>
+        <div class="flex gap-8">
+            <div>
+                <span class="block text-sm font-bold">Arabic</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-60">Native</span>
+            </div>
+            <div>
+                <span class="block text-sm font-bold">English</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-60">Very Good (Written/Spoken)</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-24 px-6 bg-[#121212]" id="portfolio">
+<div class="max-w-7xl mx-auto reveal reveal-up">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="editorial-heading text-5xl mb-4">Selected Work</h2>
+<p class="text-luxury-ivory/60 max-w-md">A curated collection of property narratives that redefined market presence.</p>
+</div>
+<div class="flex gap-4">
+<button class="portfolio-filter px-6 py-2 border border-primary/20 text-xs uppercase tracking-widest hover:bg-primary/10 transition-colors active" data-filter="all">All</button>
+<button class="portfolio-filter px-6 py-2 border border-primary/20 text-xs uppercase tracking-widest hover:bg-primary/10 transition-colors" data-filter="development">Development</button>
+<button class="portfolio-filter px-6 py-2 border border-primary/20 text-xs uppercase tracking-widest hover:bg-primary/10 transition-colors" data-filter="rawasin">Rawasin</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden reveal reveal-up">
+    <img src="content/DEVELOPMENT/1.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 1">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">ليه تختار Inscription؟
+– مشاريع متسلمة
+– جودة بناء
+– فرق تنفيذ على أعلى مستوى
+– مواعيد دقيقة
+– دعم بعد البيع
+وده اللي يخلي عملائنا يكملوا معانا في كل مرحلة جديدة.
+عايز تبدأ؟          
+ تواصل معانا دلوقتي
+للتواصل :19429.
+ واتساب: https://wa.link/0n0a11</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/2.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 2">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">من يوم الأرض… لحد استلام المفتاح.
+ده جزء من شغل  سنين ثقة وتسليم فعلي.
+جاردينيا  مشروع من أنجح مشاريعنا.
+لو عايز تستثمر وانت مطمّن، شوف الجديد اللي بنقدّمه.
+كلمنا واعرف المشاريع المتاحة دلوقتي. 
+للتواصل :19429.
+ واتساب: https://wa.link/0n0a11 
+ #سوهـاج_الجديدة #Inscription_Development #عقارات_سوهاج_الجديدة #realestate</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/3.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 3">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">محتار تستثمر في إيه؟ 
+ الذهب: مكسب سريع لكنه غير ثابت.
+ العقار: استثمار طويل المدى، يديك أمان وعائد مضمون.
+ ومع iniscription  القرار دايما سهل .
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11
+#Inscription_Development #سوهـاج_الجديدة #استثمار_ذكي</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/4.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 4">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">حاجات لازم تعرفها قبل ما تختار مشروعك :
+✅ سمعة الشركة وجودة مشاريعها
+✅ تراخيص سليمة وقانونية
+✅ مرافق وتصميم يناسب أسلوب حياتك
+✅ أقساط واضحة ومرنة
+✅ قيمة إعادة البيع
+🏡 مشاريع Inscription بتطبق كل النقاط دي من أول فكرة لحد التسليم.
+📞 تواصل دلوقتي واعرف أكتر
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11
+#Inscription_Development #سوهـاج_الجديدة #استثمار_ذكي</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/5.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 5">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">🏠 قبل ما تشتري وحدتك العقارية… خُد بالك من الأخطاء دي.
+❌ لا تختار مطوّر بدون سجل موثوق.
+❌ لا تهمل الموقع والخدمات المحيطة.
+❌ لا توقّع أي عقد قبل مراجعته بدقة.
+❌ لا تتجاوز ميزانيتك أو تختار خطة دفع مرهقة.
+📩 تواصل مع فريق انسكربشن اليوم وخليك واثق إنك بتختار الوحدة الصح من أول مرة.
+💼 انسكربشن – شريكك الذكي في الاستثمار العقاري.
+ احجز استشارتك المجانية الآن وابدأ طريقك نحو القرار العقاري الأفضل.
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11
+#Inscription_Development #سوهـاج_الجديدة #استثمار_ذكي</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/6.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 6">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">اقتراب الانتهاء من أعمال تشطيب وحدات جاردينيا 2 لتسليم العملاء وحداتهم كامله التشطيب  🏠✨
+استعد للراحة والفخامة من أول يوم مع INSCRIPTION .
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11
+#Inscription_Development #سوهـاج_الجديدة</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/7.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 7">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">الخصوصية مش اختيار … دي أبسط حقوقك في المكان اللي بتعيش فيه.
+في Rawasin، صممنا كل تفصيلة عشان تضمنلك راحتك، هدوءك، ومساحتك الخاصة.
+هنا هتعيش في بيتك فعلاً … من غير تنازلات 
+عيش الخصوصية الحقيقية … احجز وحدتك الآن
+للتفاصيل: 19429
+واتساب : https://wa.link/0n0a11
+#DamaDevelopment #سوهاج</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/8.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 8">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">العقار مش بس بيت … هو استثمار آمن بيحافظ على قيمته وبيزيد بمرور الوقت. اعرف ليه الاستثمار في سوهاج الجديدة هو فرصة العمر.
+تواصل معنا لمعرفة خطط الاستثمار في مشروعاتنا.
+للتفاصيل: 19429
+واتساب : https://wa.link/0n0a11
+#DamaDevelopment #سوهاج</p>
+    </div>
+</div>
+<div class="portfolio-item development group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/DEVELOPMENT/9.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Development 9">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">إطلاق المرحلة التانية من رواسين حقّق حضور غير مسبوق…
+ووحدات مميّزة اتعاقدت خلال ساعات قليلة.
+المتبقي الآن اختيارات محدودة جدًا في أفضل مواقع الكومباوند.
+لو بتفكر في سكن راقٍ يجمع بين الخصوصية والخدمات،
+فاللحظة دي هي الأمثل لاتخاذ القرار.
+اتصل الآن واستغل الفرصة  قبل اكتمال الوحدات .
+ للتواصل :📞 19429.
+واتساب : https://wa.link/0n0a11</p>
+    </div>
+</div>
+
+<!-- Rawasin Items -->
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden reveal reveal-up">
+    <img src="content/Rawasin/1.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 1">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">وأنت بتشتري بيت، بتسأل عن نظام السداد…
+عن المقدم… عن ميعاد الاستلام…
+بس عمرك سألت: “العقار ده هيعيش كام سنة؟”
+في رواسين، إحنا بنبني بمفهوم مختلف.
+مش بنقفل حيطة ونسلم مفاتيح،
+إحنا بنبني استدامة.
+عمر المبنى المصمم بأسس الاستدامة ومواد عالية الجودة بيوصل لـ100 سنة أو أكتر،
+ده مش كلام… ده معيار عالمي بيعتمد على التصميم، المواد، ونظم التشغيل.
+رواسين…
+بنحترم الزمن، ونبني للمستقبل</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/2.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 2">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">مش كل خامة تنفع في أي مكان!🌂
+اللي يناسب بيئة ساحلية، مش شرط يشتغل في بيئة حارة وجافة.
+في الأماكن اللي الحرارة فيها بتوصل لـ٤٥ درجة…
+الخامة الصح مش رفاهية، دي أمان وسلامة واستدامة.
+في رواسين، بنختار كل خامة بعناية،
+علشان تشتغل مع البيئة… مش ضدها.
+ • بنستخدم مواد عازلة للحرارة
+ • واجهات بتقلل من امتصاص الشمس
+ • خامات بتطول عمر المبنى وتحافظ على راحة السكان
+ • وبنراعي اشتراطات معمارية دقيقة زي التهوية المتقاطعة، واتجاهات الفتحات، والتظليل الطبيعي
+النتيجة؟
+فرق الحرارة بين داخل المبنى وخارجه ممكن يوصل لـ7 درجات مئوية…
+من غير تكييف.
+رواسين… مش بنبني مبنى، إحنا بنبني نظام حياة متوافق مع البيئة.</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/3.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 3">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">لأن الرفاهية الحقيقية…
+مش في اللي تملكه،
+لكنها في اللي تعيشه.
+انتظر… تجربة جديدة من رواسين.
+📍احجز مكانك دلوقتي في رواسين و عيش رفاهية  المستقبل ☘️
+📞 للتفاصيل والتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/4.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 4">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">لأن الحياة في رواسين مش مجرد سكن…
+دي رحلة من التجارب،
+كل خطوة فيها ليها معنى.
+استعد… لأن المرحلة الجاية مختلفة.
+📍احجز مكانك دلوقتي في رواسين و عيش رفاهية  المستقبل ☘️
+📞 للتفاصيل والتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/5.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 5">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">ليه رواسين؟
+ • شقق بواجهات بحري .
+ • تصميم معماري ذكي يحافظ على الخصوصية .
+ • مساحات خضراء ومرافق متكاملة 
+ ⏰ استمارتك الآن = فرصة للاستفادة من المزايا الحصرية للطرح التاني.
+احجز استمارتك دلوقتي .
+📞 للتفاصيل: 19429
+💬 واتساب: https://wa.link/0n0a11</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/6.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 6">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">جاهز تكون من عملائنا المميزين معانا في  الطرح التاني؟
+تسجيل استمارتك دلوقتي بيديك أولوية يوم 20/11… ومعاها مزايا حصرية مش هتتكرر.
+اللي شافوا الطرح الأول عارفين قد إيه الإقبال كان قوي. النجاح ده كان علامة مهمة إن مشروع رواسين ماشي بخط ثابت… وإن ثقة العملاء أكبر من أي توقعات.
+دلوقتي دورك تاخد الخطوة دي .
+احجز استمارتك، وخليك ضمن أوائل المستفيدين.
+📞 للتواصل: 19429
+💬 واتساب: https://wa.link/0n0a11</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/7.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 7">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">✨ أكبر فرصة استثمارية في سوهاج الجديدة بدأت.
+" مول Rawasin مش مجرد مول" ، "هو وجهتك الإستثمارية الجديدة "
+تجاري : - محلات تجارية متنوعة وصالات ترفيه تضمن أعلى كثافة زوار.
+طبي :- عيادات طبية بتشطيب كامل في موقع استراتيجي سهل الوصول.
+تكامل :- "كل ما تحتاجه على بُعد خطوات" (مطاعم، كافيهات،محلات ).
+— دلوقتي فرصتك عشان تكون من أوائل المستثمرين —
+✨ لأول 50 إستمارة حجز فقط✨
+ - خصم 10% على الوحدات التجارية
+ - خصم مميز على الوحدات الطبية.
+احجز استمارتك دلوقتي
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11
+#Dama_Development  #سوهـاج_الجديدة #استثمار_ذكي #تطوير_عقاري #مشروع_متكامل #استثمار_آمن</p>
+    </div>
+</div>
+<div class="portfolio-item rawasin group bg-background-dark border border-primary/10 overflow-hidden">
+    <img src="content/Rawasin/8.jpg" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" alt="Rawasin 8">
+    <div class="p-6">
+        <p class="text-xs text-luxury-ivory/80 dir-rtl whitespace-pre-line leading-relaxed">عيش في مكان… وتمتّع بامتيازات محدش غيرك هيخدها.
+مع Rawasin Passport كل نقطة بتكسبها = تجربة جديدة…
+قسايم شراء، خصومات، رحلات، عمرة، حفلات، وأكتر.
+اشتري وحدتك دلوقتي… وخليك من العملاء اللي ليهم VIP Lifestyle.
+احجز وحدتك قبل ما المتاح يخلص.
+📞 للتواصل: 19429
+📱 واتساب: https://wa.link/0n0a11  
+ #رواسين #استثمار_ذكي #dama_development #مشروع_متكامل #سوهاج_الجديدة #realestate</p>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Courses Section -->
+<section class="py-24 px-6 bg-[#121212]" id="education">
+<div class="max-w-7xl mx-auto reveal reveal-up">
+<div class="mb-16 text-center">
+<h2 class="editorial-heading text-4xl md:text-5xl mb-4">Education & Certificates</h2>
+<div class="w-20 h-0.5 bg-primary mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-background-dark p-10 border border-primary/10">
+<h3 class="editorial-heading text-3xl mb-6 text-primary">Academic</h3>
+<div class="space-y-2">
+<p class="text-xl font-bold text-white">Bachelor of Commerce</p>
+<p class="text-sm text-primary italic">Accounting Department</p>
+<p class="text-xs uppercase tracking-widest opacity-60">Sohag University | Class of 2022</p>
+</div>
+</div>
+<div class="bg-background-dark p-10 border border-primary/10">
+<h3 class="editorial-heading text-3xl mb-6 text-primary">Professional</h3>
+<div class="space-y-8">
+<div>
+<p class="text-lg font-bold text-white">Digital Marketing Diploma</p>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed">Comprehensive training in SEO, social media marketing, and email campaigns (Sohag University Certified).</p>
+</div>
+<div>
+<p class="text-lg font-bold text-white">Microsoft Office Specialist</p>
+<p class="text-sm text-luxury-ivory/60 leading-relaxed">Proficient in Excel (formulas, data entry), Word (formatting), and PowerPoint (professional presentations).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 px-6 bg-background-dark overflow-x-hidden" id="contact">
+<div class="max-w-7xl mx-auto border border-primary/20 p-12 lg:p-20 relative overflow-hidden reveal reveal-up">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="grid lg:grid-cols-2 gap-20">
+<div>
+<h2 class="editorial-heading text-4xl md:text-6xl mb-8">Let's Work Together</h2>
+<p class="text-luxury-ivory/60 mb-12 text-lg">Ready to elevate your property portfolio? Reach out to discuss bespoke content strategies that convert browsers into buyers.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-6">
+<span class="size-12 rounded-full border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</span>
+<div>
+<p class="text-xs uppercase tracking-widest opacity-60">Inquiries</p>
+<p class="text-lg">Shahd.t11@yahoo.com</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="size-12 rounded-full border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">call</span>
+</span>
+<div>
+<p class="text-xs uppercase tracking-widest opacity-60">Phone</p>
+<p class="text-lg">+20 101 533 7411</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="size-12 rounded-full border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</span>
+<div>
+<p class="text-xs uppercase tracking-widest opacity-60">Base</p>
+<p class="text-lg">Sohag, Al-Gomhoureya Street</p>
+</div>
+</div>
+</div>
+</div>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest opacity-60">Name</label>
+<input class="w-full bg-transparent border-b border-primary/30 focus:border-primary outline-none py-2 text-luxury-ivory transition-all placeholder:text-luxury-ivory/20" placeholder="Your Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest opacity-60">Email</label>
+<input class="w-full bg-transparent border-b border-primary/30 focus:border-primary outline-none py-2 text-luxury-ivory transition-all placeholder:text-luxury-ivory/20" placeholder="your@email.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest opacity-60">Project Interest</label>
+<select class="w-full bg-transparent border-b border-primary/30 focus:border-primary outline-none py-2 text-luxury-ivory transition-all">
+<option class="bg-background-dark">Property Cinematic Film</option>
+<option class="bg-background-dark">Social Media Management</option>
+<option class="bg-background-dark">Editorial Photography</option>
+<option class="bg-background-dark">Full Branding Package</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest opacity-60">Message</label>
+<textarea class="w-full bg-transparent border-b border-primary/30 focus:border-primary outline-none py-2 text-luxury-ivory transition-all min-h-[100px] placeholder:text-luxury-ivory/20" placeholder="Tell me about your project..."></textarea>
+</div>
+<button class="w-full bg-primary text-background-dark py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary/90 transition-all mt-6">Send Inquiry</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-12 px-6 border-t border-primary/10 bg-background-dark text-center">
+<div class="max-w-7xl mx-auto">
+<h2 class="editorial-heading text-3xl text-primary mb-8 tracking-widest uppercase">Shahd Tarek</h2>
+<div class="flex justify-center gap-8 mb-8">
+<a class="opacity-60 hover:opacity-100 hover:text-primary transition-all flex items-center gap-2 text-xs uppercase tracking-widest" href="https://wa.me/201015337411" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.96l-1.127 4.12 4.217-1.106A7.894 7.894 0 0 0 8 15.852c4.363 0 7.92-3.558 7.923-7.926a7.86 7.86 0 0 0-2.322-5.6zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+    </svg>
+    WhatsApp
+</a>
+</div>
+<p class="text-[10px] uppercase tracking-[0.3em] opacity-40">© 2026 Shahd Tarek Portfolio. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple sticky nav change on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-background-dark/95');
+                nav.classList.remove('bg-background-dark/80');
+            } else {
+                nav.classList.add('bg-background-dark/80');
+                nav.classList.remove('bg-background-dark/95');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('-translate-y-[110%]');
+            mobileMenu.classList.toggle('translate-y-0');
+            // Change menu icon to close when open
+            const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+            if (mobileMenu.classList.contains('translate-y-0')) {
+                icon.textContent = 'close';
+            } else {
+                icon.textContent = 'menu';
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-y-[110%]');
+                mobileMenu.classList.remove('translate-y-0');
+                mobileMenuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+            });
+        });
+
+        // Portfolio filtering
+        const filters = document.querySelectorAll('.portfolio-filter');
+        const items = document.querySelectorAll('.portfolio-item');
+
+        filters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Update active state
+                filters.forEach(f => f.classList.remove('active'));
+                filter.classList.add('active');
+
+                const category = filter.getAttribute('data-filter');
+
+                items.forEach(item => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.classList.remove('hidden');
+                        item.style.display = 'block';
+                    } else {
+                        item.classList.add('hidden');
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Scroll Reveal Observer
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // observer.unobserve(entry.target); // Optional: unobserve after reveal
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body></html>
